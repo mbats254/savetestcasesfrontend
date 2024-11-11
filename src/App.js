@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+// Input route headers
+import ExcelReader from "./Components/ExcelReader";
+import DetailPage from "./Components/TestCase";
+import TestCaseForm from "./Components/TestCaseForm";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true, // Opting in for React Router v7's startTransition feature
+      }}
+    >
+      <Routes>
+        {/* Input routes */}
+        <Route path="upload/test/cases" element={<ExcelReader />} />
+        <Route path="test/case/:id" element={<DetailPage />} />
+        {/* New route for editing or creating test case */}
+        <Route path="test/case/edit/:id?" element={<TestCaseForm />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
