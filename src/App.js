@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ExcelReader from "./Components/ExcelReader";
 import DetailPage from "./Components/TestCase";
 import TestCaseForm from "./Components/TestCaseForm";
+import DownloadButton from "./Components/Index";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
     >
       <Routes>
         {/* Input routes */}
+        <Route path="" element={<DownloadButton />} />
         <Route path="upload/test/cases" element={<ExcelReader />} />
         <Route path="test/case/:id" element={<DetailPage />} />
         {/* New route for editing or creating test case */}
