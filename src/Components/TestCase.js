@@ -96,12 +96,14 @@ const DetailPage = () => {
 
   // Navigate to the Add Test Case page
   const handleAddTestCase = () => {
-    navigate("/test/case/add");
+  
+    window.location.href =  'http://127.0.0.1:8000/admin/testApp/testcase/add/'
   };
 
   // Navigate to the Edit Test Case page
   const handleEditTestCase = () => {
-    navigate(`/test/case/edit/${id}`);
+    window.location.href =  `http://127.0.0.1:8000/admin/testApp/testcase/${id}/change/`;
+    // navigate(`/test/case/edit/${id}`);
   };
 
   return (
